@@ -3,248 +3,138 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday</title>
+<title>Jaan کے لیے Birthday Surprise 🎂</title>
 <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap');
+    * { margin:0; padding:0; box-sizing:border-box; }
   body {
-    background: #1a1a1a;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif;
-  }
-
- .gift-box {
-    position: relative;
-    width: 90%;
-    max-width: 500px;
-    height: 400px;
-    background: linear-gradient(135deg, #ffe5ec, #fff0f5);
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    font-family: 'Noto Nastaliq Urdu', serif;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
     overflow: hidden;
-    cursor: grab;
+    height: 100vh;
   }
-
- .flap {
+ .page {
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 50%;
-    background: #ffc2d1;
-    transform-origin: top;
-    transition: transform 0.8s ease;
-    z-index: 3;
-  }
- .gift-box.open.flap { transform: rotateX(-180deg); }
-
- .heart {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 60px;
-    color: #ff4d6d;
-    z-index: 2;
-    transition: all 0.5s ease;
-  }
- .gift-box.open.heart { opacity: 0; }
-
- .hint {
-    position: absolute;
-    bottom: 15px; width: 100%;
-    text-align: center;
-    font-size: 14px;
-    color: #a4133c;
-    letter-spacing: 2px;
-    z-index: 4;
-  }
- .gift-box.open.hint { display: none; }
-
-  /* Pages Container */
- .pages {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    padding: 30px 20px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 1s 0.4s;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 1s ease;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
   }
- .gift-box.open.pages { opacity: 1; visibility: visible; }
-
- .page { display: none; }
- .page.active { display: block; animation: fadeIn 0.6s; }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
- .page h1 {
-    font-size: 2rem;
-    color: #c9184a;
-    margin-bottom: 15px;
-  }
- .page p {
-    font-size: 1.2rem;
-    color: #800f2f;
-    line-height: 1.8;
-  }
-
- .nav {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 30px;
-  }
- .nav button {
+ .page.active { opacity: 1; }
+  h1 { font-size: 2.5em; color: #d63384; margin-bottom: 20px; text-shadow: 2px 2px 4px #fff; }
+  h2 { font-size: 1.8em; color: #a61e4d; margin-bottom: 15px; }
+  p { font-size: 1.3em; color: #333; line-height: 2; max-width: 90%; }
+ .btn {
+    margin-top: 30px;
+    padding: 12px 30px;
     background: #ff4d6d;
     color: white;
     border: none;
-    padding: 8px 20px;
-    border-radius: 20px;
-    font-size: 16px;
+    border-radius: 50px;
+    font-size: 1.2em;
     cursor: pointer;
-    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(255,77,109,0.4);
   }
- .nav button:hover { background: #c9184a; }
- .nav button:disabled { background: #ccc; cursor: not-allowed; }
+ .btn:hover { background: #ff1a4d; }
+ .heart { font-size: 3em; animation: beat 1s infinite; }
+  @keyframes beat { 0%,100%{transform:scale(1)} 50%{transform:scale(1.2)} }
+  canvas { position: fixed; top:0; left:0; pointer-events: none; }
 </style>
 </head>
 <body>
 
-<div class="gift-box" id="gift">
-  <div class="flap"></div>
+<canvas id="confetti"></canvas>
+
+<!-- Page 1 -->
+<div class="page active">
   <div class="heart">❤️</div>
-  <div class="hint">اوپر کھینچیں PULL TO OPEN</div>
+  <h1>Assalamualaikum Jaan</h1>
+  <p>آج کا دن بہت خاص ہے...<br>کیونکہ آج آپ کا Birthday ہے 🎉</p>
+  <button class="btn" onclick="nextPage()">اگلا صفحہ</button>
+</div>
 
-  <div class="pages">
-    <!-- Page 1 -->
-    <div class="page active">
-      <h1>Happy Birthday 🎉</h1>
-      <p>میرے لیے یہ دن بہت خاص ہے<br>کیونکہ آج تم پیدا ہوئے تھے ❤️</p>
-    </div>
+<!-- Page 2 -->
+<div class="page">
+  <h2>آپ کے لیے</h2>
+  <p>تم ہو تو دنیا حسین لگتی ہے<br>تمہاری ہنسی سے بہار آتی ہے</p>
+  <button class="btn" onclick="nextPage()">اگلا</button>
+</div>
 
-    <!-- Page 2 -->
-    <div class="page">
-      <h1>تم میرے لیے</h1>
-      <p>وہ دعا ہو جو ہر سجدے میں مانگی<br>وہ خوشی ہو جو ہر غم میں کام آئی</p>
-    </div>
+<!-- Page 3 -->
+<div class="page">
+  <h2>شاعری</h2>
+  <p>چاند بھی شرما جائے تمہارے چہرے سے<br>تارے بھی جھلملائیں تمہاری باتوں سے</p>
+  <button class="btn" onclick="nextPage()">اگلا</button>
+</div>
 
-    <!-- Page 3 - Shayari -->
-    <div class="page">
-      <h1>عزیز</h1>
-      <p>تم ساتھ ہو تو لگتا ہے<br>دنیا کی ہر خوشی میرے پاس ہے<br>I Love Uh So Much</p>
-    </div>
+<!-- Page 4 -->
+<div class="page">
+  <h2>Jaan</h2>
+  <p>آپ میری زندگی کی سب سے خوبصورت دعا ہیں<br>اللہ آپ کو ہمیشہ خوش رکھے آمین</p>
+  <button class="btn" onclick="nextPage()">اگلا</button>
+</div>
 
-    <!-- Page 4 -->
-    <div class="page">
-      <h1>4 دن... 3 دن...</h1>
-      <p>1 دن بھی کافی ہے تمہارے بغیر<br>لیکن سچ تو یہ ہے<br>ہر دن تمہارے ساتھ چاہیے 😊</p>
-    </div>
+<!-- Page 5 -->
+<div class="page">
+  <h2>Birthday Wish</h2>
+  <p>Happy Birthday Jaan! 🎂<br>آپ کی زندگی میں ہمیشہ خوشیاں ہوں</p>
+  <button class="btn" onclick="nextPage()">اگلا</button>
+</div>
 
-    <!-- Page 5 -->
-    <div class="page">
-      <h1>تمہاری مسکراہٹ</h1>
-      <p>دنیا کی سب سے خوبصورت چیز ہے<br>اسے ہمیشہ ایسے ہی سجائے رکھنا</p>
-    </div>
-
-    <!-- Page 6 - Shayari -->
-    <div class="page">
-      <h1>شاعری</h1>
-      <p>چاند کا چہرہ دیکھا تو تم یاد آئے<br>پھولوں کی خوشبو آئی تو تم یاد آئے<br>تم سے محبت ہے بے پناہ</p>
-    </div>
-
-    <!-- Page 7 -->
-    <div class="page">
-      <h1>دعا</h1>
-      <p>اللہ تمہیں ہمیشہ خوش رکھے<br>تمہاری ہر خواہش پوری کرے<br>آمین ❤️</p>
-    </div>
-
-    <!-- Page 8 -->
-    <div class="page">
-      <h1>Mine ❤️</h1>
-      <p>ہاں تم صرف میرے ہو<br>اور میں صرف تمہاری<br>For Every Day</p>
-    </div>
-
-    <!-- Page 9 -->
-    <div class="page">
-      <h1>یاد</h1>
-      <p>تمہاری ہر بات، ہر میسج<br>میرے دل کے بہت قریب ہے<br>Thank You For Everything</p>
-    </div>
-
-    <!-- Page 10 - Shayari -->
-    <div class="page">
-      <h1>محبت</h1>
-      <p>محبت تم سے ہے اس قدر<br>کہ لفظوں میں بیان نہیں ہو سکتی<br>بس محسوس کی جا سکتی ہے</p>
-    </div>
-
-    <!-- Page 11 -->
-    <div class="page">
-      <h1>وعدہ</h1>
-      <p>میں ہمیشہ تمہارا ساتھ دوں گی<br>خوشی میں بھی اور غم میں بھی<br>Promise ❤️</p>
-    </div>
-
-    <!-- Page 12 - Last -->
-    <div class="page">
-      <h1>The End ❤️</h1>
-      <p>لیکن ہماری کہانی کا نہیں<br>یہ تو ابھی شروع ہوئی ہے<br>Happy Birthday Again! 🎂</p>
-    </div>
-
-    <div class="nav">
-      <button id="prevBtn" onclick="prevPage()">پچھلا</button>
-      <button id="nextBtn" onclick="nextPage()">اگلا</button>
-    </div>
-  </div>
+<!-- Page 6 سے 14 تک آپ خود اور شاعری add کر سکتی ہیں -->
+<!-- Page 15 - Final -->
+<div class="page">
+  <h1>I Love You Jaan ❤️</h1>
+  <p>یہ چھوٹا سا تحفہ آپ کے نام<br>ہمیشہ ساتھ رہیں گے</p>
+  <button class="btn" onclick="startConfetti()">پارٹی پوپر 🎊</button>
 </div>
 
 <script>
-  const gift = document.getElementById('gift');
-  let startY = 0;
-  let currentPage = 0;
-  const pages = document.querySelectorAll('.page');
+let current = 0;
+const pages = document.querySelectorAll('.page');
+function nextPage(){
+  pages[current].classList.remove('active');
+  current++;
+  if(current < pages.length) pages[current].classList.add('active');
+  if(current == pages.length-1) startConfetti();
+}
 
-  // Open gift on pull
-  gift.addEventListener('touchstart', (e) => { startY = e.touches[0].clientY; });
-  gift.addEventListener('touchend', (e) => {
-    let endY = e.changedTouches[0].clientY;
-    if(startY - endY > 50) gift.classList.add('open');
+// Confetti Code
+const canvas = document.getElementById('confetti');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+let confettis = [];
+function startConfetti(){
+  for(let i=0; i<150; i++){
+    confettis.push({
+      x: Math.random()*canvas.width,
+      y: Math.random()*canvas.height - canvas.height,
+      r: Math.random()*4+1,
+      d: Math.random()*5+1,
+      color: `hsl(${Math.random()*360},100%,50%)`
+    });
+  }
+  animate();
+}
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  confettis.forEach((c)=>{
+    ctx.beginPath();
+    ctx.arc(c.x, c.y, c.r, 0, Math.PI*2);
+    ctx.fillStyle = c.color;
+    ctx.fill();
+    c.y += c.d;
   });
-  gift.addEventListener('mousedown', (e) => { startY = e.clientY; });
-  gift.addEventListener('mouseup', (e) => {
-    let endY = e.clientY;
-    if(startY - endY > 50) gift.classList.add('open');
-  });
-
-  function showPage(n) {
-    pages.forEach((p, i) => p.classList.remove('active'));
-    pages[n].classList.add('active');
-    document.getElementById('prevBtn').disabled = n === 0;
-    document.getElementById('nextBtn').disabled = n === pages.length - 1;
-  }
-
-  function nextPage() {
-    if(currentPage < pages.length - 1) {
-      currentPage++;
-      showPage(currentPage);
-    }
-  }
-  function prevPage() {
-    if(currentPage > 0) {
-      currentPage--;
-      showPage(currentPage);
-    }
-  }
-
-  showPage(0);
+  if(confettis.length) requestAnimationFrame(animate);
+}
 </script>
-
 </body>
-  </html>
+</html>
