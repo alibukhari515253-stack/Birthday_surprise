@@ -3,42 +3,75 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jaan کے لیے Birthday 🎂</title>
+<title>Happy Birthday Jaan 🎂</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap');
-  body {font-family: 'Noto Nastaliq Urdu', serif; background: linear-gradient(135deg, #ffdde1, #ee9ca7); height: 100vh; margin:0; display:flex; justify-content:center; align-items:center; text-align:center; padding:20px;}
-  .page {display:none;}
-  .page.active {display:block;}
-  h1 {font-size: 2.2em; color: #d63384;}
-  p {font-size: 1.3em; color: #333; line-height: 2;}
-  button {margin-top: 30px; padding: 12px 35px; background: #ff4d6d; color: white; border: none; border-radius: 50px; font-size: 1.2em; cursor: pointer;}
+  *{margin:0; padding:0;}
+  body{
+    font-family: 'Noto Nastaliq Urdu', serif;
+    background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fad0c4, #ffdde1);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+    height:100vh; display:flex; justify-content:center; align-items:center;
+    overflow:hidden;
+  }
+  @keyframes gradient { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+  
+.card{
+    background:white; padding:30px; border-radius:25px; 
+    box-shadow: 0 10px 40px rgba(255,77,109,0.3);
+    text-align:center; width:90%; max-width:400px;
+    animation: fadeIn 1s;
+  }
+  @keyframes fadeIn { from{opacity:0; transform:scale(0.9)} to{opacity:1; transform:scale(1)} }
+  
+  h1{color:#ff4d6d; font-size:1.8em; margin-bottom:15px;}
+  p{color:#444; font-size:1.2em; line-height:2;}
+ .emoji{font-size:3em; margin-bottom:10px; animation: float 2s infinite;}
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+ .dots{margin-top:20px; color:#ff4d6d;}
 </style>
 </head>
 <body>
 
-<div class="page active" id="p1">
-  <h1>❤️ Assalamualaikum Jaan</h1>
-  <p>آج کا دن بہت خاص ہے<br>کیونکہ آج آپ کا Birthday ہے 🎉</p>
-  <button onclick="show(2)">اگلا صفحہ</button>
-</div>
-
-<div class="page" id="p2">
-  <h1>آپ کے لیے</h1>
-  <p>تم ہو تو دنیا حسین لگتی ہے<br>تمہاری ہنسی سے بہار آتی ہے</p>
-  <button onclick="show(3)">اگلا</button>
-</div>
-
-<div class="page" id="p3">
-  <h1>I Love You Jaan ❤️</h1>
-  <p>یہ چھوٹا سا تحفہ آپ کے نام</p>
-  <button onclick="alert('Happy Birthday Jaan! 🎊')">پارٹی پوپر</button>
-</div>
+<div class="card" id="card"></div>
 
 <script>
-function show(n){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('p'+n).classList.add('active');
+const pages = [
+  {emoji:"❤️", title:"Assalamualaikum Jaan", text:"آج کا دن بہت خاص ہے<br>کیونکہ آج آپ کا Birthday ہے 🎉"},
+  {emoji:"🎂", title:"Happy Birthday", text:"Jaan آپ کے بغیر زندگی ادھوری ہے<br>آپ میری سب سے بڑی خوشی ہیں"},
+  {emoji:"🌹", title:"شاعری 1", text:"تمہاری ایک مسکراہٹ کے لیے<br>میں دنیا سے لڑ جاؤں"},
+  {emoji:"✨", title:"شاعری 2", text:"چاند بھی شرما جائے تمہارے چہرے سے<br>تارے بھی جھلملائیں تمہاری باتوں سے"},
+  {emoji:"💌", title:"دعا", text:"اللہ کرے آپ کی عمر لمبی ہو<br>اور ہر خوشی آپ کے قدم چومے آمین"},
+  {emoji:"🥰", title:"آپ خاص ہیں", text:"آپ کے ساتھ گزارا ہر لمحہ<br>میرے لیے سب سے قیمتی ہے"},
+  {emoji:"🎈", title:"شاعری 3", text:"تم بن زندگی ادھوری ہے<br>تم سے ہی میری تکمیل ہے"},
+  {emoji:"💖", title:"وعدہ", text:"میں ہمیشہ آپ کا ساتھ دوں گی<br>ہر خوشی اور غم میں"},
+  {emoji:"🌙", title:"شاعری 4", text:"تمہاری آنکھوں میں جو نشہ ہے<br>وہ شراب میں کہاں"},
+  {emoji:"🎁", title:"تحفہ", text:"آج کے دن آپ دنیا میں آئے<br>اور میری زندگی روشن کر دی"},
+  {emoji:"💕", title:"شاعری 5", text:"محبت کی انتہا کیا ہوگی<br>جب حد سے زیادہ چاہا تمہیں"},
+  {emoji:"🌸", title:"شکریہ", text:"آپ کے آنے کا شکریہ Jaan<br>آپ میری زندگی ہیں"},
+  {emoji:"💫", title:"Wish", text:"اللہ آپ کی ساری دعائیں قبول کرے<br>اور آپ کو ڈھیروں خوشیاں دے"},
+  {emoji:"🎊", title:"Party Time", text:"آج دن ہے celebration کا<br>کیک کاٹو اور خوشیاں بانٹو"},
+  {emoji:"❤️", title:"I Love You Jaan", text:"یہ چھوٹا سا تحفہ آپ کے نام<br>ہمیشہ آپ کے ساتھ رہوں گی"}
+];
+
+let i = 0;
+const card = document.getElementById('card');
+
+function showPage(){
+  if(i >= pages.length) i = 0;
+  const p = pages[i];
+  card.innerHTML = `
+    <div class="emoji">${p.emoji}</div>
+    <h1>${p.title}</h1>
+    <p>${p.text}</p>
+    <div class="dots">${i+1} / ${pages.length}</div>
+  `;
+  i++;
 }
+
+showPage();
+setInterval(showPage, 3000); // ہر 3 سیکنڈ بعد اگلا صفحہ
 </script>
 </body>
 </html>
