@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif;
+  }
+
+ .gift-box {
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    height: 400px;
+    background: linear-gradient(135deg, #ffe5ec, #fff0f5);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    overflow: hidden;
+    cursor: grab;
+  }
+
+ .flap {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 50%;
+    background: #ffc2d1;
+    transform-origin: top;
+    transition: transform 0.8s ease;
+    z-index: 3;
+  }
+ .gift-box.open.flap { transform: rotateX(-180deg); }
+
+ .heart {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    color: #ff4d6d;
+    z-index: 2;
+    transition: all 0.5s ease;
+  }
+ .gift-box.open.heart { opacity: 0; }
+
+ .hint {
+    position: absolute;
+    bottom: 15px; width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #a4133c;
+    letter-spacing: 2px;
+    z-index: 4;
+  }
+ .gift-box.open.hint { display: none; }
+
+  /* Pages Container */
+ .pages {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    padding: 30px 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s 0.4s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+ .gift-box.open.pages { opacity: 1; visibility: visible; }
+
+ .page { display: none; }
+ .page.active { display: block; animation: fadeIn 0.6s; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+ .page h1 {
+    font-size: 2rem;
+    color: #c9184a;
+    margin-bottom: 15px;
+  }
+ .page p {
+    font-size: 1.2rem;
+    color: #800f2f;
+    line-height: 1.8;
+  }
+
+ .nav {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+  }
+ .nav button {
+    background: #ff4d6d;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+ .nav button:hover { background: #c9184a; }
+ .nav button:disabled { background: #ccc; cursor: not-allowed; }
+</style>
+</head>
+<body>
+
+<div class="gift-box" id="gift">
+  <div class="flap"></div>
+  <div class="heart">❤️</div>
+  <div class="hint">اوپر کھینچیں PULL TO OPEN</div>
+
+  <div class="pages">
+    <!-- Page 1 -->
+    <div class="page active">
+      <h1>Happy Birthday 🎉</h1>
+      <p>میرے لیے یہ دن بہت خاص ہے<br>کیونکہ آج تم پیدا ہوئے تھے ❤️</p>
+    </div>
+
+    <!-- Page 2 -->
+    <div class="page">
+      <h1>تم میرے لیے</h1>
+      <p>وہ دعا ہو جو ہر سجدے میں مانگی<br>وہ خوشی ہو جو ہر غم میں کام آئی</p>
+    </div>
+
+    <!-- Page 3 - Shayari -->
+    <div class="page">
+      <h1>عزیز</h1>
+      <p>تم ساتھ ہو تو لگتا ہے<br>دنیا کی ہر خوشی میرے پاس ہے<br>I Love Uh So Much</p>
+    </div>
+
+    <!-- Page 4 -->
+    <div class="page">
+      <h1>4 دن... 3 دن...</h1>
+      <p>1 دن بھی کافی ہے تمہارے بغیر<br>لیکن سچ تو یہ ہے<br>ہر دن تمہارے ساتھ چاہیے 😊</p>
+    </div>
+
+    <!-- Page 5 -->
+    <div class="page">
+      <h1>تمہاری مسکراہٹ</h1>
+      <p>دنیا کی سب سے خوبصورت چیز ہے<br>اسے ہمیشہ ایسے ہی سجائے رکھنا</p>
+    </div>
+
+    <!-- Page 6 - Shayari -->
+    <div class="page">
+      <h1>شاعری</h1>
+      <p>چاند کا چہرہ دیکھا تو تم یاد آئے<br>پھولوں کی خوشبو آئی تو تم یاد آئے<br>تم سے محبت ہے بے پناہ</p>
+    </div>
+
+    <!-- Page 7 -->
+    <div class="page">
+      <h1>دعا</h1>
+      <p>اللہ تمہیں ہمیشہ خوش رکھے<br>تمہاری ہر خواہش پوری کرے<br>آمین ❤️</p>
+    </div>
+
+    <!-- Page 8 -->
+    <div class="page">
+      <h1>Mine ❤️</h1>
+      <p>ہاں تم صرف میرے ہو<br>اور میں صرف تمہاری<br>For Every Day</p>
+    </div>
+
+    <!-- Page 9 -->
+    <div class="page">
+      <h1>یاد</h1>
+      <p>تمہاری ہر بات، ہر میسج<br>میرے دل کے بہت قریب ہے<br>Thank You For Everything</p>
+    </div>
+
+    <!-- Page 10 - Shayari -->
+    <div class="page">
+      <h1>محبت</h1>
+      <p>محبت تم سے ہے اس قدر<br>کہ لفظوں میں بیان نہیں ہو سکتی<br>بس محسوس کی جا سکتی ہے</p>
+    </div>
+
+    <!-- Page 11 -->
+    <div class="page">
+      <h1>وعدہ</h1>
+      <p>میں ہمیشہ تمہارا ساتھ دوں گی<br>خوشی میں بھی اور غم میں بھی<br>Promise ❤️</p>
+    </div>
+
+    <!-- Page 12 - Last -->
+    <div class="page">
+      <h1>The End ❤️</h1>
+      <p>لیکن ہماری کہانی کا نہیں<br>یہ تو ابھی شروع ہوئی ہے<br>Happy Birthday Again! 🎂</p>
+    </div>
+
+    <div class="nav">
+      <button id="prevBtn" onclick="prevPage()">پچھلا</button>
+      <button id="nextBtn" onclick="nextPage()">اگلا</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const gift = document.getElementById('gift');
+  let startY = 0;
+  let currentPage = 0;
+  const pages = document.querySelectorAll('.page');
+
+  // Open gift on pull
+  gift.addEventListener('touchstart', (e) => { startY = e.touches[0].clientY; });
+  gift.addEventListener('touchend', (e) => {
+    let endY = e.changedTouches[0].clientY;
+    if(startY - endY > 50) gift.classList.add('open');
+  });
+  gift.addEventListener('mousedown', (e) => { startY = e.clientY; });
+  gift.addEventListener('mouseup', (e) => {
+    let endY = e.clientY;
+    if(startY - endY > 50) gift.classList.add('open');
+  });
+
+  function showPage(n) {
+    pages.forEach((p, i) => p.classList.remove('active'));
+    pages[n].classList.add('active');
+    document.getElementById('prevBtn').disabled = n === 0;
+    document.getElementById('nextBtn').disabled = n === pages.length - 1;
+  }
+
+  function nextPage() {
+    if(currentPage < pages.length - 1) {
+      currentPage++;
+      showPage(currentPage);
+    }
+  }
+  function prevPage() {
+    if(currentPage > 0) {
+      currentPage--;
+      showPage(currentPage);
+    }
+  }
+
+  showPage(0);
+</script>
+
+</body>
+  </html>
