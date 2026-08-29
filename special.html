@@ -3,23 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Hussain</title>
+<title>For My Hussain 🎂</title>
 <style>
-body{background:#ffc2e2; display:flex; justify-content:center; align-items:center; height:100vh; font-family:Arial; margin:0;}
-.box{background:white; padding:30px; border-radius:20px; text-align:center; width:90%; max-width:350px;}
-h2{color:#d63384;}
-.btn{padding:12px 30px; background:#ff4d94; color:white; border:none; border-radius:50px; font-size:16px; margin:10px; cursor:pointer;}
-.keypad{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:20px 0;}
-.key{padding:15px; border:2px solid #ff80b3; border-radius:10px; background:#fff0f5; font-size:18px; cursor:pointer;}
-.dots{display:flex; justify-content:center; gap:8px; margin:15px;}
-.dot{width:12px; height:12px; border:2px solid #ff4d94; border-radius:50%;}
+body{background:linear-gradient(135deg,#ffeef8,#ffc2e2); display:flex; justify-content:center; align-items:center; min-height:100vh; font-family:'Poppins',Arial; margin:0; overflow:hidden;}
+.box{background:white; padding:25px 20px; border-radius:25px; text-align:center; width:90%; max-width:380px; min-height:480px; box-shadow:0 10px 40px rgba(255,77,148,0.3); display:flex; flex-direction:column; justify-content:space-between;}
+h2{color:#d63384; font-size:1.4em; margin:10px 0;}
+p{color:#555; line-height:1.7; font-size:1em;}
+.btn{padding:12px 30px; background:linear-gradient(135deg,#ff4d94,#ff80b3); color:white; border:none; border-radius:50px; font-size:16px; margin:8px; cursor:pointer; box-shadow:0 4px 10px rgba(255,77,148,0.3);}
+.keypad{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:15px 0;}
+.key{padding:15px; border:2px solid #ff80b3; border-radius:12px; background:#fff0f5; font-size:18px; font-weight:bold; color:#d63384; cursor:pointer;}
+.dots{display:flex; justify-content:center; gap:10px; margin:15px;}
+.dot{width:14px; height:14px; border:2px solid #ff4d94; border-radius:50%;}
 .dot.fill{background:#ff4d94;}
+.emoji{font-size:3.5em; animation:bounce 2s infinite;}
+@keyframes bounce{0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)}}
+
+/* Confetti */
+.confetti{position:fixed; width:10px; height:10px; top:-10px; animation:fall 3s linear forwards; z-index:999;}
+@keyframes fall{to{transform:translateY(100vh) rotate(720deg); opacity:0;}}
+
+/* Crying hearts */
+.cry{position:fixed; font-size:30px; animation:fallCry 2s linear forwards; z-index:999;}
+@keyframes fallCry{to{transform:translateY(100vh); opacity:0;}}
 </style>
 </head>
 <body>
 
+<!-- PAGE 1: PASSWORD -->
 <div class="box" id="p1">
-  <div style="font-size:50px;">🐱🔒</div>
+  <div class="emoji">🐱🔒</div>
   <h2>Enter a passcode</h2>
   <p>Ye surprise sirf Hussain ke liye hai 💝</p>
   <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
@@ -33,39 +45,160 @@ h2{color:#d63384;}
   <p id="err" style="color:red;"></p>
 </div>
 
+<!-- PAGE 2: ASK -->
 <div class="box" id="p2" style="display:none;">
-  <div style="font-size:50px;">🥺</div>
+  <div class="emoji">🥺</div>
   <h2>I made something special for u</h2>
   <p>do u want to see?</p>
-  <button class="btn" style="background:green" onclick="show(3)">YES</button>
-  <button class="btn" style="background:red" onclick="show(4)">NO</button>
+  <button class="btn" style="background:#4CAF50" onclick="yesClick()">YES</button>
+  <button class="btn" style="background:#f44336" onclick="noClick()">NO</button>
 </div>
 
+<!-- PAGE 3: NO ANIMATION -->
 <div class="box" id="p3" style="display:none;">
-  <div style="font-size:50px;">🎉🎂</div>
-  <h2>HAPPY BIRTHDAY HUSSAIN!</h2>
-  <p>Aaj ka din sirf aap ka hai ❤️</p>
-  <button class="btn" onclick="show(5)">NEXT</button>
-</div>
-
-<div class="box" id="p4" style="display:none;">
-  <div style="font-size:50px;">😭</div>
+  <div class="emoji">😭</div>
   <h2>Why did u click no?! 😢</h2>
+  <p>Itna bura laga kya? 💔</p>
   <button class="btn" onclick="show(2)">TRY AGAIN</button>
 </div>
 
+<!-- PAGE 4: BIRTHDAY BOOM -->
+<div class="box" id="p4" style="display:none;">
+  <div class="emoji">🎉🎂</div>
+  <h2>HAPPY BIRTHDAY HUSSAIN!</h2>
+  <p>Aaj ka din sirf aap ka hai ❤️</p>
+  <button class="btn" onclick="show(5)">CLICK ME</button>
+</div>
+
+<!-- PAGE 5 -->
 <div class="box" id="p5" style="display:none;">
-  <div style="font-size:50px;">💞</div>
-  <h2>I Love You Hussain ❤️</h2>
-  <p>Happy Birthday to the Best Boyfriend Ever!<br><br>- Aap ki Wishma</p>
+  <h2>MY WISH FOR U ✨</h2>
+  <p>Happy Birthday to My Very Special Person!<br><br>Thank you for being such a wonderful part of my life. Your smile makes every day so special 💕</p>
+  <button class="btn" onclick="show(6)">NEXT</button>
+</div>
+
+<!-- PAGE 6 -->
+<div class="box" id="p6" style="display:none;">
+  <h2>For You 🌹</h2>
+  <p>Hussain, aap ke saath har lamha khoobsurat hai. Aap ki care mujhe sab se special feel karwati hai.</p>
+  <button class="btn" onclick="show(7)">NEXT</button>
+</div>
+
+<!-- PAGE 7 -->
+<div class="box" id="p7" style="display:none;">
+  <h2>Dua 💫</h2>
+  <p>May Allah bless you with a long, healthy and beautiful life. May He protect you and grant you success. Ameen ❤️</p>
+  <button class="btn" onclick="show(8)">NEXT</button>
+</div>
+
+<!-- PAGE 8 -->
+<div class="box" id="p8" style="display:none;">
+  <h2>Yaad Hai? 🥰</h2>
+  <p>Jab pehli baar baat ki thi... dil ki dhadkan tez ho gayi thi. Us din se aap mere dil me ho.</p>
+  <button class="btn" onclick="show(9)">NEXT</button>
+</div>
+
+<!-- PAGE 9 -->
+<div class="box" id="p9" style="display:none;">
+  <h2>I Miss You 😔</h2>
+  <p>Virtual hug for ya! 🤗<br>Aap door hain par dil ke bohat kareeb.</p>
+  <button class="btn" onclick="show(10)">NEXT</button>
+</div>
+
+<!-- PAGE 10 -->
+<div class="box" id="p10" style="display:none;">
+  <h2>Aap Special Ho 🌟</h2>
+  <p>Duniya me 8 billion log hain, par mera dil sirf Hussain ko dhoondta hai. Aap meri dua, meri khushi, meri sab kuch ho.</p>
+  <button class="btn" onclick="show(11)">NEXT</button>
+</div>
+
+<!-- PAGE 11 -->
+<div class="box" id="p11" style="display:none;">
+  <h2>Promise? 🤝</h2>
+  <p>Kya aap hamesha mere saath rahoge? Har khushi me, har dukh me?</p>
+  <button class="btn" onclick="show(12)">HAAN</button>
+</div>
+
+<!-- PAGE 12 -->
+<div class="box" id="p12" style="display:none;">
+  <h2>Thank You 💝</h2>
+  <p>Har choti choti baat ke liye shukriya. Aap ki wajah se main roz hansti hun.</p>
+  <button class="btn" onclick="show(13)">NEXT</button>
+</div>
+
+<!-- PAGE 13 -->
+<div class="box" id="p13" style="display:none;">
+  <h2>Last Wish 🎁</h2>
+  <p>Allah kare aap ki har wish poori ho. Aap ko duniya ki har khushi mile. Aur main hamesha aap ke saath hun ❤️</p>
+  <button class="btn" onclick="show(14)">NEXT</button>
+</div>
+
+<!-- PAGE 14: PROPOSE -->
+<div class="box" id="p14" style="display:none;">
+  <div class="emoji">💐</div>
+  <h2>Will you be mine? 🥺</h2>
+  <p>I Love You Hussain</p>
+  <button class="btn" style="background:#4CAF50" onclick="yesFinal()">YES!</button>
+  <button class="btn" style="background:#f44336" onclick="noFinal()">NO</button>
+</div>
+
+<!-- PAGE 15: FINAL BOOM -->
+<div class="box" id="p15" style="display:none;">
+  <div class="emoji">💞🎊</div>
+  <h2>Yayyy! ❤️ I love you!</h2>
+  <p>Happy Birthday to the Best Boyfriend Ever!<br><br>I Love You Endless ❤️<br><br>- Aap ki Wishma</p>
 </div>
 
 <script>
 let pass="";
 function add(n){ if(pass.length<4){ pass+=n; update(); } }
 function update(){ let d=document.querySelectorAll('.dot'); d.forEach((x,i)=>x.classList.toggle('fill', i<pass.length)); }
-function check(){ if(pass=="1234"){ show(2); }else{ document.getElementById('err').innerText="Wrong! Try 1234"; pass=""; update(); setTimeout(()=>err.innerText="",2000); } }
-function show(n){ for(let i=1;i<=5;i++) document.getElementById('p'+i).style.display='none'; document.getElementById('p'+n).style.display='block'; }
+
+function createConfetti(){
+  for(let i=0;i<100;i++){
+    let c=document.createElement('div');
+    c.className='confetti';
+    c.style.left=Math.random()*100+'vw';
+    c.style.background=['#ff4d94','#ff80b3','#ffc2e2','#ffe0f0'][Math.floor(Math.random()*4)];
+    c.style.animationDelay=Math.random()*0.5+'s';
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),3000);
+  }
+}
+
+function createCry(){
+  for(let i=0;i<20;i++){
+    let c=document.createElement('div');
+    c.className='cry';
+    c.innerHTML='😭💔';
+    c.style.left=Math.random()*100+'vw';
+    c.style.animationDelay=Math.random()*1+'s';
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),2000);
+  }
+}
+
+function check(){ 
+  if(pass=="1234"){ 
+    createConfetti(); // BOOM on unlock
+    setTimeout(()=>show(2),500);
+  }else{ 
+    document.getElementById('err').innerText="Wrong! Try 1234"; 
+    pass=""; update(); 
+    setTimeout(()=>err.innerText="",2000); 
+  } 
+}
+
+function show(n){ 
+  for(let i=1;i<=15;i++) document.getElementById('p'+i).style.display='none'; 
+  document.getElementById('p'+n).style.display='flex'; 
+  if(n>4 && n<14) createConfetti(); // confetti on middle pages
+}
+
+function yesClick(){ createConfetti(); show(4); }
+function noClick(){ createCry(); show(3); }
+function noFinal(){ alert("No option not allowed! 😠"); }
+function yesFinal(){ createConfetti(); createConfetti(); show(15); }
 </script>
 </body>
 </html>
