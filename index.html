@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Jaan 🎂</title>
+<title>Jaan کے لیے میرا تحفہ 🎂</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap');
   *{margin:0; padding:0; box-sizing:border-box;}
@@ -37,13 +37,13 @@
 </head>
 <body>
 
-<!-- PASSWORD PAGE -->
+<!-- PASSWORD PAGE - LARKI BOL RAHI -->
 <div class="box" id="passwordPage">
-  <div class="emoji">🔒</div>
-  <h2>یہ Surprise صرف Jaan کے لیے ہے</h2>
-  <p style="color:#666; margin-bottom:10px;">Password ڈالیں</p>
-  <input type="password" id="passInput" placeholder="Password یہاں لکھیں">
-  <button class="btn" onclick="checkPass()">کھولو ❤️</button>
+  <div class="emoji">🔒💌</div>
+  <h2>یہ سرپرائز صرف میرے Jaan کے لیے ہے</h2>
+  <p style="color:#666; margin-bottom:10px;">میں نے آپ کے لیے خاص بنایا ہے<br>Password ڈال کر کھولیں</p>
+  <input type="password" id="passInput" placeholder="Password: Jaan">
+  <button class="btn" onclick="checkPass()">کھولو میرے Jaan ❤️</button>
   <p id="error" style="color:red; margin-top:10px;"></p>
 </div>
 
@@ -53,24 +53,24 @@
 </div>
 
 <script>
-const correctPass = "Jaan"; // یہاں password ہے
+const correctPass = "Jaan"; // Password
 
 const pages = [
-  {emoji:"🎉", shayari:"چاند بھی شرما جائے تمہارے چہرے سے<br>تارے بھی جھلملائیں تمہاری باتوں سے", wish:"🎂 Happy Birthday Jaan! اللہ آپ کو ڈھیروں خوشیاں دے"},
-  {emoji:"❤️", shayari:"تمہاری ایک مسکراہٹ کے لیے<br>میں دنیا سے لڑ جاؤں", wish:"🌹 آج کا دن آپ کے لیے خاص ہو، جیسے آپ میرے لیے خاص ہیں"},
-  {emoji:"🌹", shayari:"تم ہو تو دنیا حسین لگتی ہے<br>تمہاری ہنسی سے بہار آتی ہے", wish:"✨ اللہ کرے آپ کی زندگی پھولوں جیسی مہکے"},
-  {emoji:"💖", shayari:"تم بن زندگی ادھوری ہے<br>تم سے ہی میری تکمیل ہے", wish:"🎁 Jaan آپ کو Birthday کی ڈھیر ساری مبارک ہو"},
-  {emoji:"🥰", shayari:"آپ کی آنکھوں میں جو نشہ ہے<br>وہ شراب میں کہاں", wish:"💫 اللہ آپ کی ہر دعا قبول کرے آمین"},
-  {emoji:"🌸", shayari:"آپ کے ساتھ گزارا ہر لمحہ<br>میرے لیے سب سے قیمتی ہے", wish:"🎈 آج آپ کا دن ہے، جی بھر کر celebrate کریں"},
-  {emoji:"💌", shayari:"آپ میری زندگی کی سب سے خوبصورت دعا ہیں<br>اللہ آپ کو سلامت رکھے", wish:"🎊 Happy Birthday! آپ ہمیشہ ایسے ہی ہنستے رہیں"},
-  {emoji:"✨", shayari:"محبت کی انتہا کیا ہوگی<br>جب حد سے زیادہ چاہا تمہیں", wish:"❤️ Jaan آپ کے لیے دل سے دعا ہے، ہمیشہ خوش رہیں"},
-  {emoji:"🎁", shayari:"آج کے دن آپ دنیا میں آئے<br>اور میری زندگی روشن کر دی", wish:"🌙 اللہ آپ کو صحت، عزت اور کامیابی دے"},
-  {emoji:"💕", shayari:"تمہاری باتوں میں جو سکون ہے<br>وہ دنیا کی کسی کتاب میں نہیں", wish:"🎂 Birthday Mubarak Jaan! کیک کاٹنے کا وقت آ گیا"},
-  {emoji:"🌙", shayari:"تمہارے نام سے میری پہچان ہے<br>تمہارے بغیر میں کچھ بھی نہیں", wish:"💝 اللہ آپ کو لمبی عمر اور بے شمار خوشیاں عطا کرے"},
-  {emoji:"🎈", shayari:"آپ کی ہنسی میری خوشی ہے<br>آپ کا غم میرا غم ہے", wish:"🌟 Happy Birthday! آپ جیسا کوئی نہیں"},
-  {emoji:"💫", shayari:"تم میرے خواب ہو، میری حقیقت ہو<br>تم ہی میری دنیا ہو", wish:"🎉 Jaan آج آپ کا دن ہے، انجوائے کریں"},
-  {emoji:"🌷", shayari:"آپ کے لیے دل سے دعا نکلتی ہے<br>کہ آپ کو کبھی کوئی غم نہ چھوئے", wish:"❤️ Birthday Wishes! آپ ہمیشہ کامیاب ہوں"},
-  {emoji:"💞", shayari:"I Love You Jaan<br>تم میری زندگی ہو", wish:"🎂🎉 Happy Birthday to the Best Person Ever! I Love You"}
+  {emoji:"🎉", shayari:"چاند بھی شرما جائے آپ کے چہرے سے<br>تارے بھی جھلملائیں آپ کی باتوں سے", wish:"🎂 Happy Birthday Jaan! آج کا دن آپ کا ہے اور آپ میرے ہیں"},
+  {emoji:"❤️", shayari:"آپ کی ایک مسکراہٹ کے لیے<br>میں دنیا سے لڑ جاؤں", wish:"🌹 آج کا دن آپ کے لیے خاص ہو، جیسے آپ میرے لیے خاص ہیں"},
+  {emoji:"🌹", shayari:"آپ ہو تو دنیا حسین لگتی ہے<br>آپ کی ہنسی سے بہار آتی ہے", wish:"✨ اللہ کرے آپ کی زندگی پھولوں جیسی مہکے"},
+  {emoji:"💖", shayari:"آپ کے بغیر زندگی ادھوری ہے<br>آپ سے ہی میری تکمیل ہے", wish:"🎁 Jaan آپ کو میری طرف سے Birthday کی ڈھیر ساری مبارک ہو"},
+  {emoji:"🥰", shayari:"آپ کی آنکھوں میں جو نشہ ہے<br>وہ شراب میں کہاں", wish:"💫 اللہ آپ کی ہر دعا قبول کرے آمین۔ یہ میری دعا ہے"},
+  {emoji:"🌸", shayari:"آپ کے ساتھ گزارا ہر لمحہ<br>میرے لیے سب سے قیمتی ہے", wish:"🎈 آج آپ کا دن ہے Jaan، جی بھر کر celebrate کریں"},
+  {emoji:"💌", shayari:"آپ میری زندگی کی سب سے خوبصورت دعا ہیں<br>اللہ آپ کو سلامت رکھے", wish:"🎊 Happy Birthday! آپ ہمیشہ ایسے ہی ہنستے رہیں۔ میں دیکھتی رہوں"},
+  {emoji:"✨", shayari:"محبت کی انتہا کیا ہوگی<br>جب حد سے زیادہ چاہا آپ کو", wish:"❤️ Jaan آپ کے لیے دل سے دعا ہے، ہمیشہ خوش رہیں"},
+  {emoji:"🎁", shayari:"جس دن آپ دنیا میں آئے<br>اس دن میری زندگی روشن ہو گئی", wish:"🌙 اللہ آپ کو صحت، عزت اور کامیابی دے۔ آمین"},
+  {emoji:"💕", shayari:"آپ کی باتوں میں جو سکون ہے<br>وہ دنیا کی کسی کتاب میں نہیں", wish:"🎂 Birthday Mubarak Jaan! کیک کاٹیں اور مجھے یاد رکھیں"},
+  {emoji:"🌙", shayari:"آپ کے نام سے میری پہچان ہے<br>آپ کے بغیر میں کچھ بھی نہیں", wish:"💝 اللہ آپ کو لمبی عمر اور بے شمار خوشیاں عطا کرے"},
+  {emoji:"🎈", shayari:"آپ کی ہنسی میری خوشی ہے<br>آپ کا غم میرا غم ہے", wish:"🌟 Happy Birthday Jaan! آپ جیسا کوئی نہیں اور نہ ہوگا"},
+  {emoji:"💫", shayari:"آپ میرے خواب ہو، میری حقیقت ہو<br>آپ ہی میری دنیا ہو", wish:"🎉 Jaan آج آپ کا دن ہے، انجوائے کریں۔ میں آپ کے ساتھ ہوں"},
+  {emoji:"🌷", shayari:"آپ کے لیے دل سے دعا نکلتی ہے<br>کہ آپ کو کبھی کوئی غم نہ چھوئے", wish:"❤️ Birthday Wishes! آپ ہمیشہ کامیاب ہوں۔ Love You"},
+  {emoji:"💞", shayari:"I Love You Jaan<br>آپ میری زندگی ہیں<br>آپ کے بغیر میں کچھ نہیں", wish:"🎂🎉 Happy Birthday to the Best Boyfriend Ever! I Love You So Much ❤️"}
 ];
 
 let i = 0;
@@ -82,7 +82,7 @@ function checkPass(){
     document.getElementById('mainPage').classList.remove('hidden');
     showPage();
   } else {
-    document.getElementById('error').innerText = "غلط Password! 'Jaan' لکھیں";
+    document.getElementById('error').innerText = "ارے غلط Password! 'Jaan' لکھیں نا 😅";
   }
 }
 
@@ -96,7 +96,7 @@ function showPage(){
       <div class="wish">${p.wish}</div>
     </div>
     <div>
-      ${i < pages.length-1? `<button class="btn" onclick="nextPage()">اگلا صفحہ ➡️</button>` : `<button class="btn" onclick="alert('I Love You Jaan! ❤️🎊')">ختم 🎊</button>`}
+      ${i < pages.length-1? `<button class="btn" onclick="nextPage()">اگلا صفحہ ➡️</button>` : `<button class="btn" onclick="alert('I Love You So Much Jaan! ❤️🎊\n\n- آپ کی')">ختم 🎊</button>`}
       <div style="color:#999; font-size:0.9em; margin-top:10px;">${i+1} / ${pages.length}</div>
     </div>
   `;
@@ -107,7 +107,6 @@ function nextPage(){
   showPage();
 }
 
-// Enter دبانے سے بھی password لگ جائے
 document.getElementById('passInput').addEventListener('keypress', function(e){
   if(e.key === 'Enter') checkPass();
 });
