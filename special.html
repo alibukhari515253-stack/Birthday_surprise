@@ -1,176 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Birthday Surprise for Hussain 🎂</title>
+<title>For Hussain</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-*{margin:0; padding:0; box-sizing:border-box;}
-body{
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #ffeef8 0%, #ffc2e2 100%);
-  min-height:100vh; display:flex; justify-content:center; align-items:center; padding:20px;
-}
-.box{
-  background: white; padding:30px 20px; border-radius:25px;
-  box-shadow: 0 15px 50px rgba(255,105,180,0.3); border: 3px solid #ffe0f0;
-  text-align:center; width:100%; max-width:400px; min-height:500px;
-  display:flex; flex-direction:column; justify-content:space-between;
-}
-.emoji{font-size:4em; margin-bottom:10px;}
-h2{color:#d63384; font-size:1.5em; margin-bottom:10px;}
-p{color:#555; line-height:1.8; font-size:1.05em;}
-.btn{
-  padding:14px 35px; background: linear-gradient(135deg, #ff4d94, #ff80b3);
-  color: white; border: none; border-radius: 50px; font-size: 1.1em; cursor: pointer;
-  box-shadow: 0 5px 15px rgba(255,77,148,0.4); font-family: 'Poppins'; margin:8px;
-}
-
-/* Keypad */
-.keypad{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:20px 0;}
-.key{
-  padding:18px; border:2px solid #ff80b3; border-radius:15px; background:#fff0f5;
-  font-size:1.3em; font-weight:600; color:#d63384; cursor:pointer;
-}
-.pass-boxes{display:flex; justify-content:center; gap:10px; margin:15px 0;}
-.pass-dot{width:15px; height:15px; border:2px solid #ff4d94; border-radius:50%;}
-.pass-dot.filled{background:#ff4d94;}
-.hidden{display:none;}
+body{background:#ffc2e2; display:flex; justify-content:center; align-items:center; height:100vh; font-family:Arial; margin:0;}
+.box{background:white; padding:30px; border-radius:20px; text-align:center; width:90%; max-width:350px;}
+h2{color:#d63384;}
+.btn{padding:12px 30px; background:#ff4d94; color:white; border:none; border-radius:50px; font-size:16px; margin:10px; cursor:pointer;}
+.keypad{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:20px 0;}
+.key{padding:15px; border:2px solid #ff80b3; border-radius:10px; background:#fff0f5; font-size:18px; cursor:pointer;}
+.dots{display:flex; justify-content:center; gap:8px; margin:15px;}
+.dot{width:12px; height:12px; border:2px solid #ff4d94; border-radius:50%;}
+.dot.fill{background:#ff4d94;}
 </style>
 </head>
 <body>
 
-<!-- PAGE 1: PASSWORD -->
-<div class="box" id="page1">
-  <div class="emoji">🐱🔒</div>
+<div class="box" id="p1">
+  <div style="font-size:50px;">🐱🔒</div>
   <h2>Enter a passcode</h2>
   <p>Ye surprise sirf Hussain ke liye hai 💝</p>
-  <div class="pass-boxes" id="passBoxes">
-    <div class="pass-dot"></div><div class="pass-dot"></div><div class="pass-dot"></div><div class="pass-dot"></div>
-  </div>
+  <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
   <div class="keypad">
-    <div class="key" onclick="addPass(1)">1</div><div class="key" onclick="addPass(2)">2</div><div class="key" onclick="addPass(3)">3</div>
-    <div class="key" onclick="addPass(4)">4</div><div class="key" onclick="addPass(5)">5</div><div class="key" onclick="addPass(6)">6</div>
-    <div class="key" onclick="addPass(7)">7</div><div class="key" onclick="addPass(8)">8</div><div class="key" onclick="addPass(9)">9</div>
-    <div></div><div class="key" onclick="addPass(0)">0</div><div></div>
+    <div class="key" onclick="add(1)">1</div><div class="key" onclick="add(2)">2</div><div class="key" onclick="add(3)">3</div>
+    <div class="key" onclick="add(4)">4</div><div class="key" onclick="add(5)">5</div><div class="key" onclick="add(6)">6</div>
+    <div class="key" onclick="add(7)">7</div><div class="key" onclick="add(8)">8</div><div class="key" onclick="add(9)">9</div>
+    <div></div><div class="key" onclick="add(0)">0</div><div></div>
   </div>
-  <button class="btn" onclick="checkPass()">UNLOCK</button>
-  <p id="passError" style="color:red; margin-top:10px;"></p>
+  <button class="btn" onclick="check()">UNLOCK</button>
+  <p id="err" style="color:red;"></p>
 </div>
 
-<!-- PAGE 2: ASK -->
-<div class="box hidden" id="page2">
-  <div class="emoji">🥺</div>
+<div class="box" id="p2" style="display:none;">
+  <div style="font-size:50px;">🥺</div>
   <h2>I made something special for u</h2>
   <p>do u want to see?</p>
-  <div><button class="btn" style="background:green" onclick="nextPage()">YES</button> <button class="btn" style="background:red" onclick="noClick()">NO</button></div>
+  <button class="btn" style="background:green" onclick="show(3)">YES</button>
+  <button class="btn" style="background:red" onclick="show(4)">NO</button>
 </div>
 
-<!-- PAGE 3: NO CLICK -->
-<div class="box hidden" id="page3">
-  <div class="emoji">😭</div>
-  <h2>Why did u click no?! 😢</h2>
-  <button class="btn" onclick="backToAsk()">TRY AGAIN</button>
-</div>
-
-<!-- PAGE 4: BIRTHDAY -->
-<div class="box hidden" id="page4">
-  <div class="emoji">🎉🎂</div>
+<div class="box" id="p3" style="display:none;">
+  <div style="font-size:50px;">🎉🎂</div>
   <h2>HAPPY BIRTHDAY HUSSAIN!</h2>
   <p>Aaj ka din sirf aap ka hai ❤️</p>
-  <button class="btn" onclick="nextPage()">CLICK ME</button>
+  <button class="btn" onclick="show(5)">NEXT</button>
 </div>
 
-<!-- PAGE 5 -->
-<div class="box hidden" id="page5">
-  <h2>MY WISH FOR U ✨</h2>
-  <p>Happy Birthday to My Very Special Person!<br><br>Thank you for being such a wonderful part of my life. Your smile makes every day so special 💕</p>
-  <button class="btn" onclick="nextPage()">NEXT</button>
+<div class="box" id="p4" style="display:none;">
+  <div style="font-size:50px;">😭</div>
+  <h2>Why did u click no?! 😢</h2>
+  <button class="btn" onclick="show(2)">TRY AGAIN</button>
 </div>
 
-<!-- PAGE 6 -->
-<div class="box hidden" id="page6">
-  <h2>For You 🌹</h2>
-  <p>Hussain, aap ke saath har lamha khoobsurat hai. Aap ki care mujhe sab se special feel karwati hai.</p>
-  <button class="btn" onclick="nextPage()">NEXT</button>
-</div>
-
-<!-- PAGE 7 -->
-<div class="box hidden" id="page7">
-  <h2>Dua 💫</h2>
-  <p>May Allah bless you with a long, healthy and beautiful life. Ameen ❤️</p>
-  <button class="btn" onclick="nextPage()">NEXT</button>
-</div>
-
-<!-- PAGE 8 -->
-<div class="box hidden" id="page8">
-  <h2>I Miss You 😔</h2>
-  <p>Virtual hug for ya! 🤗<br>Aap door hain par dil ke bohat kareeb.</p>
-  <button class="btn" onclick="nextPage()">NEXT</button>
-</div>
-
-<!-- PAGE 9: PROPOSE -->
-<div class="box hidden" id="page9">
-  <div class="emoji">💐</div>
-  <h2>Will you be mine? 🥺</h2>
-  <p>I Love You Hussain</p>
-  <div><button class="btn" style="background:green" onclick="yesFinal()">YES!</button> <button class="btn" style="background:red" onclick="noFinal()">NO</button></div>
-</div>
-
-<!-- PAGE 10: FINAL -->
-<div class="box hidden" id="page10">
-  <div class="emoji">💞🎊</div>
-  <h2>Yayyy! ❤️ I love you!</h2>
-  <p>Happy Birthday to the Best Boyfriend Ever!<br><br>I Love You Endless ❤️<br><br>- Aap ki Wishma</p>
+<div class="box" id="p5" style="display:none;">
+  <div style="font-size:50px;">💞</div>
+  <h2>I Love You Hussain ❤️</h2>
+  <p>Happy Birthday to the Best Boyfriend Ever!<br><br>- Aap ki Wishma</p>
 </div>
 
 <script>
-let currentPage = 1;
-let passInput = "";
-const correctPass = "1234"; 
-
-function addPass(num){
-  if(passInput.length < 4){
-    passInput += num;
-    updateDots();
-  }
-}
-function updateDots(){
-  let dots = document.querySelectorAll('.pass-dot');
-  dots.forEach((dot,i)=>{ dot.classList.toggle('filled', i < passInput.length); });
-}
-function checkPass(){
-  if(passInput === correctPass){
-    showPage(2);
-  } else {
-    document.getElementById('passError').innerText = "WRONG PASSCODE! Try Again 😅";
-    passInput = ""; updateDots();
-    setTimeout(()=>{document.getElementById('passError').innerText = "";}, 2000);
-  }
-}
-
-function showPage(n){
-  for(let i=1; i<=10; i++){ 
-    let el = document.getElementById('page'+i);
-    if(el) el.classList.add('hidden'); 
-  }
-  document.getElementById('page'+n).classList.remove('hidden');
-  currentPage = n;
-}
-
-function nextPage(){ showPage(currentPage + 1); }
-function backToAsk(){ showPage(2); }
-function noClick(){ showPage(3); }
-
-function noFinal(){
-  alert("No option not allowed! 😠");
-}
-function yesFinal(){
-  showPage(10);
-}
-
-showPage(1);
+let pass="";
+function add(n){ if(pass.length<4){ pass+=n; update(); } }
+function update(){ let d=document.querySelectorAll('.dot'); d.forEach((x,i)=>x.classList.toggle('fill', i<pass.length)); }
+function check(){ if(pass=="1234"){ show(2); }else{ document.getElementById('err').innerText="Wrong! Try 1234"; pass=""; update(); setTimeout(()=>err.innerText="",2000); } }
+function show(n){ for(let i=1;i<=5;i++) document.getElementById('p'+i).style.display='none'; document.getElementById('p'+n).style.display='block'; }
 </script>
 </body>
 </html>
