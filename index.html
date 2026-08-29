@@ -6,96 +6,38 @@
 <title>Jaan کے لیے Birthday 🎂</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap');
-    * { margin:0; padding:0; box-sizing:border-box; }
-  body {
-    font-family: 'Noto Nastaliq Urdu', serif;
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-    height: 100vh; overflow: hidden;
-  }
- .page {
-    position: absolute; width: 100%; height: 100%;
-    display: flex; flex-direction: column; justify-content: center; align-items: center;
-    text-align: center; padding: 20px; opacity: 0; transition: opacity 1s;
-    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-  }
- .page.active { opacity: 1; }
-  h1 { font-size: 2.2em; color: #d63384; margin-bottom: 20px; }
-  h2 { font-size: 1.7em; color: #a61e4d; margin-bottom: 15px; }
-  p { font-size: 1.3em; color: #333; line-height: 2; max-width: 90%; }
- .btn {
-    margin-top: 30px; padding: 12px 35px; background: #ff4d6d; color: white;
-    border: none; border-radius: 50px; font-size: 1.2em; cursor: pointer;
-  }
- .heart { font-size: 3em; animation: beat 1s infinite; }
-  @keyframes beat { 0%,100%{transform:scale(1)} 50%{transform:scale(1.2)} }
-  canvas { position: fixed; top:0; left:0; pointer-events: none; }
+  body {font-family: 'Noto Nastaliq Urdu', serif; background: linear-gradient(135deg, #ffdde1, #ee9ca7); height: 100vh; margin:0; display:flex; justify-content:center; align-items:center; text-align:center; padding:20px;}
+  .page {display:none;}
+  .page.active {display:block;}
+  h1 {font-size: 2.2em; color: #d63384;}
+  p {font-size: 1.3em; color: #333; line-height: 2;}
+  button {margin-top: 30px; padding: 12px 35px; background: #ff4d6d; color: white; border: none; border-radius: 50px; font-size: 1.2em; cursor: pointer;}
 </style>
 </head>
 <body>
-<canvas id="confetti"></canvas>
 
-<div class="page active">
-  <div class="heart">❤️</div>
-  <h1>Assalamualaikum Jaan</h1>
+<div class="page active" id="p1">
+  <h1>❤️ Assalamualaikum Jaan</h1>
   <p>آج کا دن بہت خاص ہے<br>کیونکہ آج آپ کا Birthday ہے 🎉</p>
-  <button class="btn" onclick="nextPage()">اگلا صفحہ</button>
+  <button onclick="show(2)">اگلا صفحہ</button>
 </div>
 
-<div class="page"><h2>آپ کے لیے</h2><p>تم ہو تو دنیا حسین لگتی ہے<br>تمہاری ہنسی سے بہار آتی ہے</p><button class="btn" onclick="nextPage()">اگلا</button></div>
+<div class="page" id="p2">
+  <h1>آپ کے لیے</h1>
+  <p>تم ہو تو دنیا حسین لگتی ہے<br>تمہاری ہنسی سے بہار آتی ہے</p>
+  <button onclick="show(3)">اگلا</button>
+</div>
 
-<div class="page"><h2>شاعری 1</h2><p>چاند بھی شرما جائے تمہارے چہرے سے<br>تارے بھی جھلملائیں تمہاری باتوں سے</p><button class="btn" onclick="nextPage()">اگلا</button></div>
-
-<div class="page"><h2>شاعری 2</h2><p>تمہاری ایک مسکراہٹ کے لیے<br>میں دنیا سے لڑ جاؤں</p><button class="btn" onclick="nextPage()">اگلا</button></div>
-
-<div class="page"><h2>Jaan</h2><p>آپ میری زندگی کی سب سے خوبصورت دعا ہیں<br>اللہ آپ کو ہمیشہ خوش رکھے آمین</p><button class="btn" onclick="nextPage()">اگلا</button></div>
-
-<div class="page"><h2>Birthday Wish</h2><p>Happy Birthday Jaan! 🎂<br>آپ کی زندگی میں ہمیشہ خوشیاں ہوں</p><button class="btn" onclick="nextPage()">اگلا</button></div>
-
-<div class="page"><h2>یاد</h2><p>آپ کے ساتھ گزارا ہر لمحہ<br>میرے لیے سب سے قیمتی ہے</p><button class="btn" onclick="nextPage()">اگلا</button></div>
-
-<div class="page"><h2>شاعری 3</h2><p>تم بن زندگی ادھوری ہے<br>تم سے ہی میری تکمیل ہے</p><button class="btn" onclick="nextPage()">اگلا</button></div>
-
-<div class="page"><h2>دعا</h2><p>اللہ کرے آپ کی عمر لمبی ہو<br>اور ہر خوشی آپ کے قدم چومے</p><button class="btn" onclick="nextPage()">اگلا</button></div>
-
-<div class="page"><h2>وعدہ</h2><p>میں ہمیشہ آپ کا ساتھ دوں گی<br>ہر خوشی اور غم میں</p><button class="btn" onclick="nextPage()">اگلا</button></div>
-
-<div class="page"><h2>شاعری 4</h2><p>تمہاری آنکھوں میں جو نشہ ہے<br>وہ شراب میں کہاں</p><button class="btn" onclick="nextPage()">اگلا</button></div>
-
-<div class="page"><h2>Special</h2><p>آج کے دن آپ دنیا میں آئے<br>اور میری زندگی روشن کر دی</p><button class="btn" onclick="nextPage()">اگلا</button></div>
-
-<div class="page"><h2>شاعری 5</h2><p>محبت کی انتہا کیا ہوگی<br>جب حد سے زیادہ چاہا تمہیں</p><button class="btn" onclick="nextPage()">اگلا</button></div>
-
-<div class="page"><h2>Thank You</h2><p>آپ کے آنے کا شکریہ Jaan<br>آپ میری زندگی ہیں</p><button class="btn" onclick="nextPage()">آخری صفحہ</button></div>
-
-<div class="page">
+<div class="page" id="p3">
   <h1>I Love You Jaan ❤️</h1>
-  <p>یہ چھوٹا سا تحفہ آپ کے نام<br>ہمیشہ ساتھ رہیں گے</p>
-  <button class="btn" onclick="startConfetti()">پارٹی پوپر 🎊</button>
+  <p>یہ چھوٹا سا تحفہ آپ کے نام</p>
+  <button onclick="alert('Happy Birthday Jaan! 🎊')">پارٹی پوپر</button>
 </div>
 
 <script>
-let current = 0;
-const pages = document.querySelectorAll('.page');
-function nextPage(){
-  pages[current].classList.remove('active');
-  current++;
-  if(current < pages.length) pages[current].classList.add('active');
-}
-
-const canvas = document.getElementById('confetti');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-let confettis = [];
-function startConfetti(){
-  for(let i=0; i<200; i++){
-    confettis.push({x: Math.random()*canvas.width, y: -10, r: Math.random()*4+1, d: Math.random()*5+2, color: `hsl(${Math.random()*360},100%,50%)`});
-  }
-  animate();
-}
-function animate(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  confettis.forEach((c)=>{ ctx.beginPath(); ctx.arc(c.x, c.y, c.r, 0, Math.PI*2); ctx.fillStyle = c.color; ctx.fill(); c.y += c.d; });
-  if(confettis[0].y < canvas.height) requestAnimationFrame(animate);
+function show(n){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('p'+n).classList.add('active');
 }
 </script>
 </body>
