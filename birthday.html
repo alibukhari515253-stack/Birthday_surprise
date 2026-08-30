@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy 17th Birthday 🎂</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@600&display=swap');
+body{
+  margin:0; padding:0; 
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display:flex; justify-content:center; align-items:center; min-height:100vh;
+  overflow:hidden;
+  font-family: 'Poppins', sans-serif;
+}
+.box{
+  background: white; 
+  padding:40px 25px; 
+  border-radius:30px; 
+  text-align:center; 
+  width:90%; 
+  max-width:400px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.3);
+  animation: pop 0.8s ease;
+  z-index:2;
+}
+@keyframes pop{ from{transform:scale(0.5); opacity:0;} to{transform:scale(1); opacity:1;} }
+
+h1{
+  font-family: 'Pacifico', cursive;
+  font-size:2.5em; 
+  color:#667eea; 
+  margin:10px 0;
+}
+.age{
+  font-size:5em; 
+  font-weight:700; 
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin:10px 0;
+}
+p{color:#555; font-size:1.1em; line-height:1.8;}
+.cake{font-size:6em; animation: bounce 2s infinite;}
+@keyframes bounce{0%,100%{transform:translateY(0)} 50%{transform:translateY(-15px)}}
+
+.btn{
+  padding:15px 40px; 
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color:white; 
+  border:none; 
+  border-radius:50px; 
+  font-size:1.2em; 
+  font-weight:600;
+  margin-top:15px;
+  cursor:pointer;
+  box-shadow:0 5px 20px rgba(102,126,234,0.4);
+}
+.btn:hover{transform:scale(1.05);}
+
+/* Balloons */
+.balloon{
+  position:fixed; 
+  font-size:40px; 
+  animation: floatUp 6s linear infinite; 
+  z-index:1;
+}
+@keyframes floatUp{
+  from{transform:translateY(100vh) rotate(0deg); opacity:1;}
+  to{transform:translateY(-20vh) rotate(360deg); opacity:0;}
+}
+
+/* Confetti */
+.confetti{
+  position:fixed; 
+  width:10px; 
+  height:10px; 
+  top:-10px; 
+  animation:fall 4s linear infinite; 
+  z-index:1;
+}
+@keyframes fall{
+  to{transform:translateY(100vh) rotate(720deg); opacity:0;}
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+  <div class="cake">🎂</div>
+  <h1>Happy 17th Birthday</h1>
+  <div class="age">17</div>
+  <p>To My Dear Hussain 🎉<br>
+  May your 17th year be full of love, success, and endless happiness ❤️<br><br>
+  You are growing into an amazing person. So proud of you!</p>
+  <button class="btn" onclick="boom()">Celebrate 🎉</button>
+</div>
+
+<script>
+function createBalloons(){
+  const emojis = ['🎈','🎈','🎈','🎉','✨'];
+  for(let i=0;i<15;i++){
+    let b = document.createElement('div');
+    b.className = 'balloon';
+    b.innerHTML = emojis[Math.floor(Math.random()*emojis.length)];
+    b.style.left = Math.random()*100 + 'vw';
+    b.style.animationDelay = Math.random()*3 + 's';
+    document.body.appendChild(b);
+    setTimeout(()=>b.remove(), 6000);
+  }
+}
+
+function createConfetti(){
+  const colors = ['#667eea','#764ba2','#ff4d94','#ffc2e2','#fff'];
+  for(let i=0;i<100;i++){
+    let c = document.createElement('div');
+    c.className = 'confetti';
+    c.style.left = Math.random()*100 + 'vw';
+    c.style.background = colors[Math.floor(Math.random()*colors.length)];
+    c.style.animationDelay = Math.random()*2 + 's';
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(), 4000);
+  }
+}
+
+function boom(){
+  createBalloons();
+  createConfetti();
+  alert("Happy 17th Birthday Hussain! 🎉🎂\nLove you bro ❤️");
+}
+
+// Page load pe hi balloons
+window.onload = ()=>{ createBalloons(); createConfetti(); }
+</script>
+</body>
+</html>
