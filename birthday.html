@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Hussain - 17th Birthday 🎂</title>
+<title>For My Hussain - 17th Birthday 🎂</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap');
 *{margin:0; padding:0; box-sizing:border-box;}
@@ -36,14 +36,14 @@ h2{font-family:'Pacifico', cursive; color:#d63384; font-size:1.7em; margin-botto
 .shayari{color:#8b4a6b; line-height:2; font-size:1.1em; flex-grow:1; display:flex; align-items:center; justify-content:center;}
 
 .btn{
-  padding:14px 35px; 
+  padding:14px 30px; 
   background: linear-gradient(135deg, #ff80b3, #ff4d94);
   color:white; 
   border:none; 
   border-radius:50px; 
-  font-size:1.1em; 
+  font-size:1.05em; 
   font-weight:600;
-  margin-top:15px;
+  margin:8px;
   cursor:pointer;
   box-shadow:0 5px 20px rgba(255,77,148,0.4);
 }
@@ -67,9 +67,9 @@ h2{font-family:'Pacifico', cursive; color:#d63384; font-size:1.7em; margin-botto
 <div id="container">
 <!-- PAGE 1: PASSWORD -->
 <div class="page active" id="page1">
-  <div class="emoji">🐱🔒</div>
+  <div class="emoji">🔒💝</div>
   <h2>Enter a passcode</h2>
-  <p style="color:#8b4a6b;">Ye surprise sirf Hussain ke liye hai 💝</p>
+  <p style="color:#8b4a6b;">Ye surprise sirf Mere Hussain ke liye hai 💕</p>
   <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
   <div class="keypad">
     <div class="key" onclick="add(1)">1</div><div class="key" onclick="add(2)">2</div><div class="key" onclick="add(3)">3</div>
@@ -81,174 +81,178 @@ h2{font-family:'Pacifico', cursive; color:#d63384; font-size:1.7em; margin-botto
   <p id="err" style="color:red; margin-top:10px;"></p>
 </div>
 
-<!-- PAGE 2 -->
+<!-- PAGE 2: YES/NO -->
 <div class="page" id="page2">
-  <div class="emoji">🥺</div>
-  <h2>Special Hai Na?</h2>
-  <div class="shayari">Tumhare liye ye choti si koshish ki hai,<br>Tumhari 17th birthday ko yaadgaar banane ki ❤️</div>
-  <button class="btn" onclick="goTo(3)">NEXT</button>
+  <div class="emoji">🥺👉👈</div>
+  <h2>I made something special for u</h2>
+  <div class="shayari">do u want to see my 17th birthday wish for you?<br>Mere jaan ❤️</div>
+  <div>
+    <button class="btn" style="background:#4CAF50" onclick="goTo(4)">YES</button>
+    <button class="btn" style="background:#f44336" onclick="goTo(3)">NO</button>
+  </div>
 </div>
 
-<!-- PAGE 3 -->
+<!-- PAGE 3: HEARTBREAK CUTE -->
 <div class="page" id="page3">
-  <div class="emoji">🎉🎂</div>
-  <h2>Happy 17th Birthday</h2>
-  <div class="shayari">17 saal ke ho gaye tum Hussain,<br>Umar ke sath sath izzat bhi barh rahi hai 🎈</div>
-  <button class="btn" onclick="goTo(4)">NEXT</button>
+  <div class="emoji">😭💔</div>
+  <h2>Why did u say NO?! </h2>
+  <div class="shayari">Itna bura laga kya meri wish? 😔<br>Please wapis YES kar do na...<br>Maine itne pyar se banayi hai tumhare liye 🥺</div>
+  <button class="btn" onclick="goTo(2)">OK FINE YES</button>
 </div>
 
 <!-- PAGE 4 -->
 <div class="page" id="page4">
-  <h2>Dua 💫</h2>
-  <div class="shayari">Allah tumhein har qadam par kamyabi de,<br>Har mushkil ko asaan kar de. Ameen ❤️</div>
+  <div class="emoji">🎉🎂</div>
+  <h2>Happy 17th Birthday My Love!</h2>
+  <div class="shayari">17 saal ke ho gaye mere Hussain ❤️<br>Aaj ka din sirf tumhara hai. I love you so much 🎈</div>
   <button class="btn" onclick="goTo(5)">NEXT</button>
 </div>
 
 <!-- PAGE 5 -->
 <div class="page" id="page5">
-  <h2>Tumhari Dosti 🌹</h2>
-  <div class="shayari">Dosti nibhane wale kam milte hain,<br>Tum jaisa dost to lakhon me ek hota hai 💕</div>
+  <h2>My Wish For You ✨</h2>
+  <div class="shayari">Allah tumhein duniya ki har khushi de,<br>Tumhari har dua qubool ho. Ameen ❤️<br>Because you deserve the world my love</div>
   <button class="btn" onclick="goTo(6)">NEXT</button>
 </div>
 
 <!-- PAGE 6 -->
 <div class="page" id="page6">
-  <h2>Proud 🌟</h2>
-  <div class="shayari">Tumhari mehnat, tumhara hunar,<br>Har cheez par mujhe fakhar hai Hussain!</div>
+  <h2>You're Mine 🌹</h2>
+  <div class="shayari">Tum mere ho Hussain,<br>Aur main tumhari. Ye rishta sab se pyara hai 💕</div>
   <button class="btn" onclick="goTo(7)">NEXT</button>
 </div>
 
 <!-- PAGE 7 -->
 <div class="page" id="page7">
-  <h2>Miss You 😔</h2>
-  <div class="shayari">Door ho kar bhi dil ke itne kareeb ho,<br>Kash ek mulakat ho jaye tumse 🤗</div>
+  <h2>Proud of You 🌟</h2>
+  <div class="shayari">Jis tarah tum mehnat karte ho,<br>Mujhe tum par naaz hai. My king 👑</div>
   <button class="btn" onclick="goTo(8)">NEXT</button>
 </div>
 
 <!-- PAGE 8 -->
 <div class="page" id="page8">
-  <h2>Unique Ho 💝</h2>
-  <div class="shayari">Duniya me jese hazar hain,<br>Par tum jaisa koi dusra nahi!</div>
+  <h2>I Miss You 😔</h2>
+  <div class="shayari">Door ho kar bhi dil ke sab se kareeb ho,<br>Kab miloge mujhse? Virtual hug 🤗</div>
   <button class="btn" onclick="goTo(9)">NEXT</button>
 </div>
 
 <!-- PAGE 9 -->
 <div class="page" id="page9">
-  <h2>Hansna 😄</h2>
-  <div class="shayari">Tumhari hansi me meri khushi hai,<br>Hamesha aise hi haste rehna!</div>
+  <h2>Your Smile 😊</h2>
+  <div class="shayari">Tumhari ek smile ke liye,<br>Main kuch bhi kar sakti hun. Please hamesha haste rehna</div>
   <button class="btn" onclick="goTo(10)">NEXT</button>
 </div>
 
 <!-- PAGE 10 -->
 <div class="page" id="page10">
-  <h2>Support 💪</h2>
-  <div class="shayari">Har mushkil me main sath hun,<br>Tum bas aage barhte jao!</div>
+  <h2>My Hero 💪</h2>
+  <div class="shayari">Tum girte ho to uthna bhi jante ho,<br>Isi liye to tum mere hero ho!</div>
   <button class="btn" onclick="goTo(11)">NEXT</button>
 </div>
 
 <!-- PAGE 11 -->
 <div class="page" id="page11">
-  <h2>Yaadein 📸</h2>
-  <div class="shayari">Jo pal humne sath guzare,<br>Wo sab se pyari yaadein hain!</div>
+  <h2>Our Memories 📸</h2>
+  <div class="shayari">Jo pal humne sath guzare,<br>Wo meri sab se pyari yaadein hain ❤️</div>
   <button class="btn" onclick="goTo(12)">NEXT</button>
 </div>
 
 <!-- PAGE 12 -->
 <div class="page" id="page12">
-  <h2>Izzat 👑</h2>
-  <div class="shayari">Tumhari izzat, tumhara naam,<br>Allah dono me barkat de!</div>
+  <h2>You Complete Me 💫</h2>
+  <div class="shayari">Tumhare bina main adhuri hun,<br>Tum se hi meri duniya hai Hussain!</div>
   <button class="btn" onclick="goTo(13)">NEXT</button>
 </div>
 
 <!-- PAGE 13 -->
 <div class="page" id="page13">
-  <h2>Kamyabi 🚀</h2>
-  <div class="shayari">Jo khwab dekhe hain tumne,<br>Wo sab pure hon. Yehi dua hai!</div>
+  <h2>Dream Boy 🚀</h2>
+  <div class="shayari">Jo khwab dekhe hain tumne,<br>Main dua karti hun wo sab pure hon!</div>
   <button class="btn" onclick="goTo(14)">NEXT</button>
 </div>
 
 <!-- PAGE 14 -->
 <div class="page" id="page14">
-  <h2>Sehat 🌿</h2>
-  <div class="shayari">Allah tumhein lambi umar de,<br>Sehat aur sukoon wali zindagi de!</div>
+  <h2>Take Care 🌿</h2>
+  <div class="shayari">Apna khayal rakhna mere jaan,<br>Sehat sab se zaroori hai ❤️</div>
   <button class="btn" onclick="goTo(15)">NEXT</button>
 </div>
 
 <!-- PAGE 15 -->
 <div class="page" id="page15">
-  <h2>Smile 😊</h2>
-  <div class="shayari">Tumhare chehre ki muskurahat,<br>Mere liye sab se bari nemat hai!</div>
+  <h2>I Trust You 🤝</h2>
+  <div class="shayari">Tum par mujhe poora bharosa hai,<br>Tum sab se ache ho!</div>
   <button class="btn" onclick="goTo(16)">NEXT</button>
 </div>
 
 <!-- PAGE 16 -->
 <div class="page" id="page16">
-  <h2>Bhai ❤️</h2>
-  <div class="shayari">Dost se barh kar bhai ho tum,<br>Khoon ka rishta na sahi, dil ka hai!</div>
+  <h2>Jealous? 😒</h2>
+  <div class="shayari">Kisi aur ko dekho to jalti hun,<br>Because you are MINE only! 😤❤️</div>
   <button class="btn" onclick="goTo(17)">NEXT</button>
 </div>
 
 <!-- PAGE 17 -->
 <div class="page" id="page17">
-  <h2>Motivation 🔥</h2>
-  <div class="shayari">Girte ho to uthna bhi tumhein aata hai,<br>Isi liye to tum sher ho!</div>
+  <h2>Birthday Boy 🎁</h2>
+  <div class="shayari">Aaj ka din sirf tumhara hai,<br>Party to banti hai mere shahzade!</div>
   <button class="btn" onclick="goTo(18)">NEXT</button>
 </div>
 
 <!-- PAGE 18 -->
 <div class="page" id="page18">
-  <h2>Birthday Boy 🎁</h2>
-  <div class="shayari">Aaj ka din sirf tumhara hai,<br>Party banti hai Hussain bhai!</div>
+  <h2>Promise? 🤞</h2>
+  <div class="shayari">Promise karo hamesha sath rahoge,<br>Kabhi chor kar nahi jaoge!</div>
   <button class="btn" onclick="goTo(19)">NEXT</button>
 </div>
 
 <!-- PAGE 19 -->
 <div class="page" id="page19">
-  <h2>Sacha Rishta 🤝</h2>
-  <div class="shayari">Matlab ke rishte bohat hain,<br>Par sacha rishta tum se hai!</div>
+  <h2>My Prayer 🙏</h2>
+  <div class="shayari">Har namaz me tumhara naam leti hun,<br>Allah tumhein hamesha khush rakhe!</div>
   <button class="btn" onclick="goTo(20)">NEXT</button>
 </div>
 
 <!-- PAGE 20 -->
 <div class="page" id="page20">
-  <h2>Light ✨</h2>
-  <div class="shayari">Tumhari zindagi me roshni ho,<br>Har andhera door ho jaye!</div>
+  <h2>You're Handsome 😍</h2>
+  <div class="shayari">Sach me tum bohat cute ho,<br>Dil chura liya hai tumne mera!</div>
   <button class="btn" onclick="goTo(21)">NEXT</button>
 </div>
 
 <!-- PAGE 21 -->
 <div class="page" id="page21">
-  <h2>Wafa 💌</h2>
-  <div class="shayari">Wafa ki misal ho tum,<br>Rishta nibhana khoob aata hai!</div>
+  <h2>Future 💭</h2>
+  <div class="shayari">Socha hai humara future?<br>Main chahti hun wo tumhare sath ho ❤️</div>
   <button class="btn" onclick="goTo(22)">NEXT</button>
 </div>
 
 <!-- PAGE 22 -->
 <div class="page" id="page22">
-  <h2>Fakhar 😌</h2>
-  <div class="shayari">Dost kehne me fakhar hota hai,<br>Jab naam tumhara aata hai!</div>
+  <h2>Sorrey 😔</h2>
+  <div class="shayari">Agar kabhi hurt kiya ho to maaf kar dena,<br>Main tumse bohat pyar karti hun!</div>
   <button class="btn" onclick="goTo(23)">NEXT</button>
 </div>
 
 <!-- PAGE 23 -->
 <div class="page" id="page23">
-  <h2>Khushi 🎊</h2>
-  <div class="shayari">Tumhari ek khushi ke liye,<br>Main duniya se lar sakta hun!</div>
+  <h2>Forever 💌</h2>
+  <div class="shayari">Tum mera aaj ho, kal ho,<br>Aur hamesha rahoge!</div>
   <button class="btn" onclick="goTo(24)">NEXT</button>
 </div>
 
 <!-- PAGE 24 -->
 <div class="page" id="page24">
-  <h2>Last Wish 🙏</h2>
-  <div class="shayari">Bas yehi chahata hun,<br>Tum hamesha khush raho Hussain!</div>
+  <h2>Last One 😭</h2>
+  <div class="shayari">Bas yehi kehna tha...<br>I love you more than anything Hussain!</div>
   <button class="btn" onclick="goTo(25)">NEXT</button>
 </div>
 
 <!-- PAGE 25: FINAL -->
 <div class="page" id="page25">
-  <div class="emoji">💞🎊</div>
-  <h2>I Love You! ❤️</h2>
-  <div class="shayari">Happy 17th Birthday to the Best Person Ever!<br><br>Thank you for being in my life.<br>I Love You Endless ❤️<br><br>- From Your Special One</div>
+  <div class="emoji">💞🎊💋</div>
+  <h2>I Love You My Hussain! ❤️</h2>
+  <div class="shayari">Happy 17th Birthday to the Love of My Life!<br><br>Thank you for coming into my life.<br>I Love You Endless ❤️<br>Forever Yours<br><br>- Your Girlfriend</div>
 </div>
 
 </div>
