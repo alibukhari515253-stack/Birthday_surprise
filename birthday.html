@@ -15,11 +15,11 @@ body{
 }
 .box{
   background: white; 
-  padding:40px 25px; 
+  padding:30px 25px; 
   border-radius:30px; 
   text-align:center; 
   width:90%; 
-  max-width:400px;
+  max-width:380px;
   box-shadow:0 20px 60px rgba(0,0,0,0.3);
   animation: pop 0.8s ease;
   z-index:2;
@@ -28,7 +28,7 @@ body{
 
 h1{
   font-family: 'Pacifico', cursive;
-  font-size:2.5em; 
+  font-size:2.2em; 
   color:#667eea; 
   margin:10px 0;
 }
@@ -40,53 +40,60 @@ h1{
   -webkit-text-fill-color: transparent;
   margin:10px 0;
 }
-p{color:#555; font-size:1.1em; line-height:1.8;}
-.cake{font-size:6em; animation: bounce 2s infinite;}
+p{color:#555; font-size:1em; line-height:1.7;}
+.cake{font-size:5em; animation: bounce 2s infinite;}
 @keyframes bounce{0%,100%{transform:translateY(0)} 50%{transform:translateY(-15px)}}
 
 .btn{
-  padding:15px 40px; 
+  padding:14px 35px; 
   background: linear-gradient(135deg, #667eea, #764ba2);
   color:white; 
   border:none; 
   border-radius:50px; 
-  font-size:1.2em; 
+  font-size:1.1em; 
   font-weight:600;
-  margin-top:15px;
+  margin:8px;
   cursor:pointer;
   box-shadow:0 5px 20px rgba(102,126,234,0.4);
 }
-.btn:hover{transform:scale(1.05);}
+
+/* Keypad */
+.keypad{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:15px 0;}
+.key{padding:15px; border:2px solid #667eea; border-radius:12px; background:#f0f0ff; font-size:18px; font-weight:bold; color:#667eea; cursor:pointer;}
+.dots{display:flex; justify-content:center; gap:10px; margin:15px;}
+.dot{width:14px; height:14px; border:2px solid #667eea; border-radius:50%;}
+.dot.fill{background:#667eea;}
+.hidden{display:none;}
 
 /* Balloons */
-.balloon{
-  position:fixed; 
-  font-size:40px; 
-  animation: floatUp 6s linear infinite; 
-  z-index:1;
-}
-@keyframes floatUp{
-  from{transform:translateY(100vh) rotate(0deg); opacity:1;}
-  to{transform:translateY(-20vh) rotate(360deg); opacity:0;}
-}
+.balloon{position:fixed; font-size:40px; animation: floatUp 6s linear infinite; z-index:1;}
+@keyframes floatUp{ from{transform:translateY(100vh) rotate(0deg); opacity:1;} to{transform:translateY(-20vh) rotate(360deg); opacity:0;} }
 
 /* Confetti */
-.confetti{
-  position:fixed; 
-  width:10px; 
-  height:10px; 
-  top:-10px; 
-  animation:fall 4s linear infinite; 
-  z-index:1;
-}
-@keyframes fall{
-  to{transform:translateY(100vh) rotate(720deg); opacity:0;}
-}
+.confetti{position:fixed; width:10px; height:10px; top:-10px; animation:fall 4s linear infinite; z-index:1;}
+@keyframes fall{ to{transform:translateY(100vh) rotate(720deg); opacity:0;} }
 </style>
 </head>
 <body>
 
-<div class="box">
+<!-- PAGE 1: PASSWORD -->
+<div class="box" id="p1">
+  <div class="cake">🔒🐱</div>
+  <h1>Enter a passcode</h1>
+  <p>Ye surprise sirf Hussain ke liye hai 💜</p>
+  <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+  <div class="keypad">
+    <div class="key" onclick="add(1)">1</div><div class="key" onclick="add(2)">2</div><div class="key" onclick="add(3)">3</div>
+    <div class="key" onclick="add(4)">4</div><div class="key" onclick="add(5)">5</div><div class="key" onclick="add(6)">6</div>
+    <div class="key" onclick="add(7)">7</div><div class="key" onclick="add(8)">8</div><div class="key" onclick="add(9)">9</div>
+    <div></div><div class="key" onclick="add(0)">0</div><div></div>
+  </div>
+  <button class="btn" onclick="check()">UNLOCK</button>
+  <p id="err" style="color:red;"></p>
+</div>
+
+<!-- PAGE 2: BIRTHDAY 17 -->
+<div class="box hidden" id="p2">
   <div class="cake">🎂</div>
   <h1>Happy 17th Birthday</h1>
   <div class="age">17</div>
@@ -97,6 +104,10 @@ p{color:#555; font-size:1.1em; line-height:1.8;}
 </div>
 
 <script>
+let pass="";
+function add(n){ if(pass.length<4){ pass+=n; update(); } }
+function update(){ let d=document.querySelectorAll('.dot'); d.forEach((x,i)=>x.classList.toggle('fill', i<pass.length)); }
+
 function createBalloons(){
   const emojis = ['🎈','🎈','🎈','🎉','✨'];
   for(let i=0;i<15;i++){
@@ -123,14 +134,29 @@ function createConfetti(){
   }
 }
 
+function check(){ 
+  if(pass=="1717"){ // Password 1717 rakha hai age ke hisab se
+    createConfetti();
+    setTimeout(()=>{
+      document.getElementById('p1').classList.add('hidden');
+      document.getElementById('p2').classList.remove('hidden');
+      createBalloons();
+    },500);
+  }else{ 
+    document.getElementById('err').innerText="Wrong! Try 1717"; 
+    pass=""; update(); 
+    setTimeout(()=>err.innerText="",2000); 
+  } 
+}
+
 function boom(){
   createBalloons();
   createConfetti();
   alert("Happy 17th Birthday Hussain! 🎉🎂\nLove you bro ❤️");
 }
 
-// Page load pe hi balloons
-window.onload = ()=>{ createBalloons(); createConfetti(); }
+// Load pe thore balloons
+window.onload = ()=>{ createBalloons(); }
 </script>
 </body>
 </html>
